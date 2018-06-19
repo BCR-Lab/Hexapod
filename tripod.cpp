@@ -34,10 +34,14 @@ tripod::tripod(servoIO HH1, servoIO HH2, servoIO HH3,servoIO VH1, servoIO VH2, s
  * This function lifts the legs of the tripod
  */
 void tripod::lift(){
-  for (int i = 0; i < 3; i++){
+  /*
+   for (int i = 0; i < 3; i++){
     verticalHip[i].setServoPosition(DEFAULT_POSITION);
-    knee[i].setServoPosition(DEFAULT_POSITION);
   }
+  */
+  verticalHip[0].setServoPosition(DEFAULT_POSITION + (verticalHip[0].notReverse()*100));
+  verticalHip[1].setServoPosition(DEFAULT_POSITION - (verticalHip[1].notReverse()*100));
+  verticalHip[2].setServoPosition(DEFAULT_POSITION);
   for (int i = 0; i < 3; i++){
     verticalHip[i].writeToServo();
     knee[i].writeToServo();
@@ -65,7 +69,7 @@ void tripod::stand(){
  */
 void tripod::forward(){
   horizontalHip[0].setServoPosition(DEFAULT_POSITION - (horizontalHip[0].notReverse()*250));
-  horizontalHip[1].setServoPosition(DEFAULT_POSITION);
+  horizontalHip[1].setServoPosition(DEFAULT_POSITION - (horizontalHip[1].notReverse()*250));
   horizontalHip[2].setServoPosition(DEFAULT_POSITION - (horizontalHip[2].notReverse()*250));
   
   for (int i = 0; i < 3; i++){
@@ -79,9 +83,15 @@ void tripod::forward(){
  * This function brings the legs down
  */
 void tripod::down(){
+  /*
   for (int i = 0; i < 3; i++){
     verticalHip[i].setServoPosition(DEFAULT_POSITION + (verticalHip[i].notReverse()*500));
   }
+  */
+  verticalHip[0].setServoPosition(DEFAULT_POSITION + (verticalHip[0].notReverse()*600));
+  verticalHip[1].setServoPosition(DEFAULT_POSITION + (verticalHip[1].notReverse()*400));
+  verticalHip[2].setServoPosition(DEFAULT_POSITION + (verticalHip[2].notReverse()*500));
+  
   for (int i = 0; i < 3; i++){
     horizontalHip[i].writeToServo();
     verticalHip[i].writeToServo();
@@ -90,21 +100,28 @@ void tripod::down(){
 }
 
 /*
- * void pushFoward()
+ * void pushFoward(float angle)
  * 
  * This function pushes forward for a forward walk
  */
-void tripod::pushFoward(){
-  
+void tripod::pushFoward(float angle){
+  /*
   for(int i = 0; i < 3; i++){
     //horizontalHip[i].setServoPosition(DEFAULT_POSITION + (horizontalHip[i].notReverse()*250));
     verticalHip[i].setServoPosition(DEFAULT_POSITION + (verticalHip[i].notReverse()*500));
     knee[i].setServoPosition(DEFAULT_POSITION);
   }
-  
-  horizontalHip[0].setServoPosition(DEFAULT_POSITION);
-  horizontalHip[1].setServoPosition(DEFAULT_POSITION + (horizontalHip[1].notReverse()*250));
-  horizontalHip[2].setServoPosition(DEFAULT_POSITION + (horizontalHip[2].notReverse()*250));
+  */
+  if(angle < 0){
+    horizontalHip[0].setServoPosition(DEFAULT_POSITION + (horizontalHip[0].notReverse()*250));
+    horizontalHip[1].setServoPosition(DEFAULT_POSITION + (horizontalHip[1].notReverse()*250));
+    horizontalHip[2].setServoPosition(DEFAULT_POSITION + (horizontalHip[2].notReverse()*(250 - (500 * angle/90))));
+  }
+  else{
+    horizontalHip[0].setServoPosition(DEFAULT_POSITION + (horizontalHip[0].notReverse()* (250 - (500 * angle/90))));
+    horizontalHip[1].setServoPosition(DEFAULT_POSITION + (horizontalHip[1].notReverse()* (250 - (500 * angle/90))));
+    horizontalHip[2].setServoPosition(DEFAULT_POSITION + (horizontalHip[2].notReverse()*250));
+  }
   /*
   verticalHip[0].setServoPosition(DEFAULT_POSITION + (verticalHip[0].notReverse()*500));
   verticalHip[1].setServoPosition(DEFAULT_POSITION + (verticalHip[1].notReverse()*750));
@@ -122,22 +139,3 @@ void tripod::pushFoward(){
   Serial.println("T1000");
   delay(2000);
 }
-
-/*
- * void diagonalR()
- * 
- * This function pushes diagonally to the right
- */
-void tripod::diagonalR(){
-  
-}
-
-/*
- * void diagonalL()
- * 
- * This function pushes diagonally to the left
- */
-void tripod::diagonalL(){
-  
-}
-  

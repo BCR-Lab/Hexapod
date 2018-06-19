@@ -5,7 +5,8 @@
 
 class servoIO {
 private:
-  int not_reverse;                     // This variable was create specifically for the robot Contantz
+  int not_reverse;                  // This variable was create specifically for the robot Contantz
+  float m,b;                        //Calibration purposes
 public:
   double value;                     // Input value provided by artificial neural network. Range is [0,1].
   int servo_number;                 // Corresponds to the pin number of the servo.
@@ -17,6 +18,7 @@ public:
   servoIO();                        // This is the default constructor that initializes servo_pos on startup.
   servoIO(int);                     // This is the constructor that assigns the servo_number to the object 
                                     // and initializes the servo_pos on startup. 
+  servoIO(int pin, float m, float b); // This is the constructor that assigns a calibration curve with the mx + b formula
   
   void setServoNumber(int);         // This method takes an integer and assigns the value to the variable
                                     // servo_number.
@@ -35,6 +37,10 @@ public:
   void setReverse(bool reverseMovement); // This method handles the servos that move reverse of the way stated in the SSC-32 manual
   int notReverse();                 // This method returns whether the servo moves in reverse or not;
   servoIO operator= (servoIO other);        // This method allows passing servoIO classes to pass the way you intend.
+  void setCaliCurve(float m, float b); // This method adjusts the calibration curve
+  int CorrectPosition();
+  float getM();
+  float getB();
 };
 
 #endif

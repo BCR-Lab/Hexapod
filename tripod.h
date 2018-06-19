@@ -25,9 +25,7 @@ class tripod{
   void stand();
   void forward();
   void down();
-  void pushFoward();
-  void diagonalR();
-  void diagonalL();
+  void pushFoward(float angle);
 };
 
 #endif

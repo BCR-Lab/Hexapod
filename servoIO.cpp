@@ -8,6 +8,8 @@
 servoIO::servoIO() {
   servo_position = 1500;
   not_reverse = 1;
+  m = 1;
+  b = 0;
 }
 
 /*                   servoIO(int pin)                   */
@@ -20,6 +22,22 @@ servoIO::servoIO(int pin) {
   servo_number = pin;
   servo_position = 1500;
   not_reverse = 1;
+  m = 1;
+  b = 0;
+}
+
+/*             servoIO(int pin,float m, float b)        */
+/* Input: pin - An integer representing the pin number  */
+/* Input: m - slope                                     */
+/* Input: b - y-intecept                                */
+/* This constuctor includes the calibration curve       */
+
+servoIO::servoIO(int pin,float m,float b) {
+  servo_number = pin;
+  servo_position = 1500;
+  not_reverse = 1;
+  this->m = m;
+  this->b = b;
 }
 
 /*          void setServoNumer(int pin)                 */
@@ -78,7 +96,7 @@ void servoIO::updateServoPosition() {
 
 void servoIO::writeToServo() {
   Serial.print("#" + String(servo_number) + 
-               "P" + String(servo_position));
+               "P" + String(CorrectPosition()));
   return;
 }
 
@@ -131,6 +149,14 @@ int servoIO::notReverse(){
 }
 
 /*
+ * void setCaliCurve(float a, float b, float c)
+ * 
+ */
+void servoIO::setCaliCurve(float m, float b){
+  this->m = m;
+  this->b = b;
+}
+/*
  * operator=(servoIO other)
  * This operator overload creates a way to equate one servoIO to another
  * This is also the function called when passing a servoIO
@@ -139,5 +165,12 @@ servoIO servoIO::operator = (servoIO other){
   this->servo_number = other.servo_number;
   this->servo_position = other.servo_position;
   this->not_reverse = other.notReverse();
+  this->m = other.getM();
+  this->b = other.getB();
 }
-
+int servoIO::CorrectPosition(){
+  int servoPositionFrom0 = servo_position-1500;
+  return 1500+((servoPositionFrom0*m) + (b*100/9));
+}
+float servoIO::getM(){return m;}
+float servoIO::getB(){return b;}
