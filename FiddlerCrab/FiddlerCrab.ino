@@ -3,9 +3,16 @@
 
 ClawClass fiddler;
 
-/**
+
 void setup() {
   Serial.begin(115200 );
+  Serial.println("#24 P1500 #20 P1500 #16 P1500 #08 P1500 #04 P1500 #00 P1500 T2000");
+  delay(2000);
+  Serial.println("#25 P2000 #21 P2000 #17 P2000 #09 P1000 #05 P1000 #01 P1000 T2000");
+  delay(2000);
+  Serial.println("#26 P1500 #22 P1500 #18 P1500 #10 P1500 #06 P1500 #02 P1500 T2000");
+  delay(2000);
+  
   fiddler.fully_open(5); //open claws; 
   fiddler.verticalMovement(2000,2000); //lower down the claw;
 
@@ -32,17 +39,18 @@ void loop() {
     delay(1000);
     
     
-}*/
+}
 
+/**
 void setup(){
   Serial.begin(115200);
 }
 void loop() {
   Serial.println("#24 P1500 #20 P1500 #16 P1500 #08 P1500 #04 P1500 #00 P1500 T2000");
   delay(2000);
-  Serial.println("#25 P2000 #21 P2000 #17 P2000 #09 P2000 #05 P2000 #01 P2000 T2000");
+  Serial.println("#25 P2000 #21 P2000 #17 P2000 #09 P1000 #05 P1000 #01 P1000 T2000");
   delay(2000);
   Serial.println("#26 P1500 #22 P1500 #18 P1500 #10 P1500 #06 P1500 #02 P1500 T2000");
   delay(2000);
   
-}
+}*/
