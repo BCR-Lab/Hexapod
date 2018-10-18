@@ -8,5 +8,7 @@ class FiddlerCrab {
 	public:
 		ClawClass claw;
 		Legs legs;
+    
+    FiddlerCrab();
 };
 #endif

@@ -7,6 +7,8 @@ class Legs{
 	
 public:
 	Legs();
+  void stand();
+  void writeToServo(int servo, int position);
 
 	
 };
