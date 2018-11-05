@@ -18,33 +18,37 @@ ClawClass::ClawClass(int l_open, int r_open, int l_close, int r_close ) {
 
 
 void ClawClass::setToNeutral() {
-  Serial.println("#29 P1450 #28 P1500 #14 P1500 #13 P1550 #12 P1500 T2000");
+
+  writeToServo(LEFT_CLAW, 1450);
+  writeToServo(RIGHT_CLAW, 1500);
+  writeToServo(UP_DOWN,1500);
+  writeToServo(LEFT_RIGHT,1500);
+  writeToServo(TORSION,1500);
+  Serial.println("T2000");
 }
 
 void ClawClass::fully_close(int time) {
-  //move('c', L_FULLY_CLOSE,R_FULLY_CLOSE,speed);
 
   moveClaw( l_fully_close,r_fully_close, time);
   
 }
 
 void ClawClass::close(int left_dest, int right_dest, int time){
-  //move('c', left_dest, right_dest, time);
+  
   moveClaw(left_dest, right_dest, time);
 
 }
 
 void ClawClass::fully_open(int time) {
- // move('o', L_FULLY_OPEN, R_FULLY_OPEN, speed);
   moveClaw( l_fully_open, r_fully_open, time);
  
 }
 
-void ClawClass::horizontalMovement(int dest, int speed) {
-  writeToServo(LEFT_RIGHT, dest, speed);
+void ClawClass::horizontalMovement(int dest, int time) {
+  writeToServo(LEFT_RIGHT, dest, time);
 }
-void ClawClass::verticalMovement(int dest, int speed){
-  writeToServo(UP_DOWN, dest, speed); 
+void ClawClass::verticalMovement(int dest, int time){
+  writeToServo(UP_DOWN, dest, time); 
 }
 
 
