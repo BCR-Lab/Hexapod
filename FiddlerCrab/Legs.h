@@ -32,10 +32,10 @@ public:
   int KSP[6];
 
 	Legs();  
-  void center(int time);
-  void up(int time);
-  void down(int time);
-  void rest(int time);
+  void center();
+  void up();
+  void down();
+  void rest();
   void writeToServo(int servo, int position);
   void writeToServo();
   void walk();

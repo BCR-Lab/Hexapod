@@ -40,45 +40,42 @@ class ClawClass {
 
     /**
      * method fully_open will open the claw to the "fully open position"
-     * it takes one argument: time needed to finish the moving process
-     * the larger the value of time, the slower the servo moves 
      */
-    void fully_open(int time);
+    void fully_open();
 
     /**
      * method fully_close will close the claw to the "fully close position"
-     * it takes one argument: time needed to finish the moving process
-     * the larger the value of time, the slower the servo moves 
      */
-    void fully_close(int time);
+    void fully_close();
+    
 
     /**
      * method close will close the claw to the the positions you pass in by argument
-     * it takes three argument: the position for the left and right dactyl, and the time limit
+     * it takes two argument: the position for the left and right dactyl
      */
-    void close(int left_dest, int right_dest, int time);
+    void close(int left_dest, int right_dest);
+    
 
     /**
      * Method horizontalMovement controls the claw side to side movement
-     * It takes two argument: the destination position, and the time to process moving
+     * It takes one argument: the destination position
      * P1500 is the neutral position; L<->R  P2000 <-> P1000
      */
-    void horizontalMovement(int dest, int time);
+    void horizontalMovement(int dest);
 
     /**
      * Method horizontalMovement controls the claw up and down movement
-     * It takes two argument: the destination position, and the time to process moving
+     * It takes one argument: the destination position
      * P1500 is the neutral position; up<--- 1500++++>down
      */
-    void verticalMovement(int dest, int time);
+    void verticalMovement(int dest);
     
-    void writeToServo(int servo, int position, int time);
-    void writeToServo(int servo, int position);
+    
    
 
   private:
-     void moveClaw(int left_dest, int right_dest, int time);
-     void move(char instruction, int left_dest, int right_dest, int speed);
+     void writeToServo(int servo, int position, int time);
+     void writeToServo(int servo, int position);
 
 
 };

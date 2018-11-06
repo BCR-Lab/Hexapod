@@ -1,5 +1,9 @@
 #include "FiddlerCrab.h"
-FiddlerCrab::FiddlerCrab(){
- 
+
+void setup() {
+   
+}
+
+void loop(){
   
 }

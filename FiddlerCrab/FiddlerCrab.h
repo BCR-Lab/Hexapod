@@ -10,5 +10,6 @@ class FiddlerCrab {
 		Legs legs;
     
     FiddlerCrab();
+   
 };
 #endif

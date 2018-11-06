@@ -4,7 +4,7 @@ Legs::Legs(){
  
 }
 
-void Legs::center(int time){
+void Legs::center(){
   /**the position for vertical hip servo(the middle servo of the leg)
    *is different than the position of horizontal hip and knee servo (P1500)
    *for up standing, the position for is LVH P2000, for RVH is P1000.  
@@ -23,12 +23,14 @@ void Legs::center(int time){
   VHSP[5]=1000;
   
   writeToServo();
+  /*
   Serial.print(" T");
   Serial.println(time);
   delay(2*time);
+  */
 }
 
-void Legs::rest(int time) {
+void Legs::rest() {
    for(int i=0; i<6; i++) {    
     HHSP[i]=1500;
     //KSP[i]=1500; 
@@ -51,12 +53,16 @@ void Legs::rest(int time) {
   KSP[5]= 2200;
   
   writeToServo();
+
+  /*
   Serial.print(" T");
   Serial.println(time);
   delay(2*time);
+
+  */
 }
 
-void Legs::down(int time) {
+void Legs::down() {
   
 }
 void Legs::writeToServo(int servo, int position) {  
