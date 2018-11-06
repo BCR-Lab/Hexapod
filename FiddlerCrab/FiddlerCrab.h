@@ -9,7 +9,7 @@ class FiddlerCrab {
 		ClawClass claw;
 		Legs legs;
     
-    FiddlerCrab();
+  //  FiddlerCrab();
    
 };
 #endif

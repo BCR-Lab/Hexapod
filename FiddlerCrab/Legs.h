@@ -31,11 +31,10 @@ public:
   int VHSP[6];
   int KSP[6];
 
-	Legs();  
-  void center();
-  void up();
-  void down();
-  void rest();
+	//Legs();  
+  void stand();
+  void sit();
+  void neutral(); 
   void writeToServo(int servo, int position);
   void writeToServo();
   void walk();
