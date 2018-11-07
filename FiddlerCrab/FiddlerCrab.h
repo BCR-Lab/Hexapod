@@ -1,15 +1,15 @@
 #ifndef FIDDLERCRAB_H
 #define FIDDLERCRAB_H
 
-#include "ClawClass.h"
-#include "Legs.h"
+#include "ClawController.h"
+#include "LegsController.h"
 
 class FiddlerCrab {
 	public:
-		ClawClass claw;
-		Legs legs;
+		ClawController claw;
+		LegsController legs;
     
-  //  FiddlerCrab();
+    //FiddlerCrab();
    
 };
 #endif
