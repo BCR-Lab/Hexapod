@@ -7,80 +7,176 @@ void LegsController::stand(){
    */
   for(int i=0; i<6; i++) {    
     HHSP[i]=1500;
-    KSP[i]=1500; 
+    KSP[i]=1500;
+
+    if(i%2==0) {
+      VHSP[i]=2000;
+    }
+    else{
+      VHSP[i]=1000;
+    }
+    
   }
 
-  VHSP[0]=2000;
-  VHSP[2]=1000;
-  VHSP[4]=2000;
-  
-  VHSP[1]=1000;
-  VHSP[3]=2000;
-  VHSP[5]=1000;
-  
-  writeToServo();
-  /*
-  Serial.print(" T");
-  Serial.println(time);
-  delay(2*time);
-  */
 }
 
 void LegsController::sit() {
   for(int i=0; i<6; i++) {    
     HHSP[i]=1500;
-    //KSP[i]=1500; 
+    if(i%2==0) {
+      VHSP[i]=1000;
+      KSP[i]= 800;
+    }
+
+    else{
+      VHSP[i]=2000;
+      KSP[i]= 2200;
+    }
   }
 
-  VHSP[0]=1000;
-  VHSP[2]=2000;
-  VHSP[4]=1000;
-  
-  VHSP[1]=2000;
-  VHSP[3]=1000;
-  VHSP[5]=2000;
-
-  KSP[0]= 800;
-  KSP[2]= 2200;
-  KSP[4]= 800;
-
-  KSP[1]= 2200;
-  KSP[3]= 800; 
-  KSP[5]= 2200;
-  
-  writeToServo();
-
-  /*
-  Serial.print(" T");
-  Serial.println(time);
-  delay(2*time);
-
-  */
 }
 
-void LegsController::neutral(){
+void LegsController::setLegsToNeutral(){
   for(int i=0; i<6; i++) {    
     HHSP[i]=1500;
+    if(i%2==0) {
+      VHSP[i]=1700;
+      KSP[i]= 1200;
+    }
+
+    else{
+      VHSP[i]=1300;
+      KSP[i]= 1800;
+    }
    
   }
 
-  VHSP[0]=1700;
-  VHSP[2]=1300;
-  VHSP[4]=1750;
-  
-  VHSP[1]=1300;
-  VHSP[3]=1700;
-  VHSP[5]=1300;
+}
+//left front leg controller
+void LegsController::lift_left_frontleg(int p){
+   VHSP[0]=VHSP[0]-p;
+}
+void LegsController::lower_left_frontleg(int p){
+   VHSP[0]=VHSP[0]+p;
+}
+void LegsController::left_frontknee_out(int p){
+   KSP[0]=KSP[0]+p;
+}
+void LegsController::left_frontknee_in(int p){
+   KSP[0]=KSP[0]-p;
+}
 
-  KSP[0]= 1200;
-  KSP[2]= 1800;
-  KSP[4]= 1200;
+void LegsController::left_frontleg_forward(int p){
+  HHSP[0]=HHSP[0] - p;
+}
+void LegsController::left_frontleg_backward(int p){
+  HHSP[0]=HHSP[0] + p;
+}
 
-  KSP[1]= 1900;
-  KSP[3]= 1200; 
-  KSP[5]= 1800;
-  
-  writeToServo();
+//left middile leg controller
+void LegsController::lift_left_middleleg(int p){
+   VHSP[2]=VHSP[2]-p;
+}
+void LegsController::lower_left_middleleg(int p){
+   VHSP[2]=VHSP[2]+p;
+}
+void LegsController::left_middleknee_out(int p){
+   KSP[2]=KSP[2]+p;
+}
+void LegsController::left_middleknee_in(int p){
+   KSP[2]=KSP[2]-p;
+}
+
+void LegsController::left_middleleg_forward(int p){
+  HHSP[2]=HHSP[2] - p;
+}
+void LegsController::left_middleleg_backward(int p){
+  HHSP[2]=HHSP[2] + p;
+}
+
+//left rear leg controller
+void LegsController::lift_left_rearleg(int p){
+   VHSP[4]=VHSP[4]-p;
+}
+void LegsController::lower_left_rearleg(int p){
+   VHSP[4]=VHSP[4]+p;
+}
+void LegsController::left_rearknee_out(int p){
+   KSP[4]=KSP[4]+p;
+}
+void LegsController::left_rearknee_in(int p){
+   KSP[4]=KSP[4]-p;
+}
+
+void LegsController::left_rearleg_forward(int p){
+  HHSP[4]=HHSP[4] - p;
+}
+void LegsController::left_rearleg_backward(int p){
+  HHSP[4]=HHSP[4] + p;
+}
+
+//right front leg controller
+void LegsController::lift_right_frontleg(int p){
+   VHSP[1]=VHSP[1]+p;
+}
+void LegsController::lower_right_frontleg(int p){
+   VHSP[1]=VHSP[1]-p;
+}
+void LegsController::right_frontknee_out(int p){
+   KSP[1]=KSP[1]-p;
+}
+void LegsController::right_frontknee_in(int p){
+   KSP[1]=KSP[1]+p;
+}
+
+void LegsController::right_frontleg_forward(int p){
+  HHSP[1]=HHSP[1] + p;
+}
+void LegsController::right_frontleg_backward(int p){
+  HHSP[1]=HHSP[1] - p;
+}
+
+
+//right middler leg controller
+void LegsController::lift_right_middleleg(int p){
+   VHSP[3]=VHSP[3]+p;
+}
+void LegsController::lower_right_middleleg(int p){
+   VHSP[3]=VHSP[3]-p;
+}
+void LegsController::right_middleknee_out(int p){
+   KSP[3]=KSP[3]-p;
+}
+void LegsController::right_middleknee_in(int p){
+   KSP[3]=KSP[3]+p;
+}
+
+void LegsController::right_middleleg_forward(int p){
+  HHSP[3]=HHSP[3] + p;
+}
+void LegsController::right_middleleg_backward(int p){
+  HHSP[3]=HHSP[3] - p;
+}
+
+//right rear leg controller
+void LegsController::lift_right_rearleg(int p){
+   VHSP[5]=VHSP[5]+p;
+}
+void LegsController::lower_right_rearleg(int p){
+   VHSP[5]=VHSP[5]-p;
+}
+void LegsController::right_rearknee_out(int p){
+   KSP[5]=KSP[5]-p;
+}
+void LegsController::right_rearknee_in(int p){
+   KSP[5]=KSP[5]+p;
+}
+
+void LegsController::right_rearleg_forward(int p){
+  HHSP[5]=HHSP[5] + p;
+}
+void LegsController::right_rearleg_backward(int p){
+  HHSP[5]=HHSP[5] - p;
 }
 
 void LegsController::writeToServo(int servo, int position) {  
@@ -93,22 +189,11 @@ void LegsController::writeToServo(int servo, int position) {
    
 }
 
-void LegsController::writeToServo() {
+void LegsController::writeToLegServos() {
   for(int i=0; i<6; i++) {
     writeToServo(HHS[i], HHSP[i]);
     writeToServo(VHS[i], VHSP[i]);
     writeToServo(KS[i], KSP[i]);
     
   }
-  
-}
-
-void LegsController::test() {
-  for(int i=0; i<6; i=i+2) {    
-    KSP[i]=1000; 
-  }
-
-  writeToServo();
-  Serial.println(" T400");
-  delay(800);
 }

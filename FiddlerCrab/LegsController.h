@@ -19,10 +19,10 @@ class LegsController{
    * RR = right rear leg
    */
    //                0, 1, 2,  3, 4, 5
-  //                 LF,RF,RM,LM,LR,RR  
-  const int HHS[6] = {24,8,4,20,16,0}; //used here to set servo sequence
-  const int VHS[6] = {25,9,5,21,17,1}; 
-  const int KS[6] =  {26,10,6,22,18,2};
+  //                 LF,RF,LM,RM,LR,RR  
+  const int HHS[6] = {24,8,20,4,16,0}; //used here to set servo sequence
+  const int VHS[6] = {25,9,21,5,17,1}; 
+  const int KS[6] =  {26,10,22,6,18,2};
   
 public:
 
@@ -34,11 +34,56 @@ public:
 	  
   void stand();
   void sit();
-  void neutral(); 
+  void setLegsToNeutral(); 
+ 
+
+  
+  void lift_left_frontleg(int p);
+  void lower_left_frontleg(int p);
+  void left_frontknee_out(int p);
+  void left_frontknee_in(int p);
+  void left_frontleg_forward(int p);
+  void left_frontleg_backward(int p);
+   
+  void lift_left_middleleg(int p);
+  void lower_left_middleleg(int p);
+  void left_middleknee_out(int p);
+  void left_middleknee_in(int p);
+  void left_middleleg_forward(int p);
+  void left_middleleg_backward(int p);
+
+  void lift_left_rearleg(int p);
+  void lower_left_rearleg(int p);
+  void left_rearknee_out(int p);
+  void left_rearknee_in(int p);
+  void left_rearleg_forward(int p);
+  void left_rearleg_backward(int p);
+
+  void lift_right_frontleg(int p);
+  void lower_right_frontleg(int p);
+  void right_frontknee_out(int p);
+  void right_frontknee_in(int p);
+  void right_frontleg_forward(int p);
+  void right_frontleg_backward(int p);
+
+  void lift_right_middleleg(int p);
+  void lower_right_middleleg(int p);
+  void right_middleknee_out(int p);
+  void right_middleknee_in(int p);
+  void right_middleleg_forward(int p);
+  void right_middleleg_backward(int p);
+
+  void lift_right_rearleg(int p);
+  void lower_right_rearleg(int p);
+  void right_rearknee_out(int p);
+  void right_rearknee_in(int p);
+  void right_rearleg_forward(int p);
+  void right_rearleg_backward(int p);
+  
   void writeToServo(int servo, int position);
-  void writeToServo();
-  void walk();
-  void test();
+  void writeToLegServos();
+ 
+
 
 
 	

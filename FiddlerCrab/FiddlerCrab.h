@@ -4,12 +4,10 @@
 #include "ClawController.h"
 #include "LegsController.h"
 
-class FiddlerCrab {
+class FiddlerCrab: public ClawController, public LegsController {
 	public:
-		ClawController claw;
-		LegsController legs;
     
-    //FiddlerCrab();
-   
+    void uploadToController();
+    void uploadToController(int time);
 };
 #endif
