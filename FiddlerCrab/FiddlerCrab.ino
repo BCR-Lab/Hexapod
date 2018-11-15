@@ -7,7 +7,7 @@ void setup() {
   Serial.begin(115200);
   crab.setClawToNeutral();
   crab.setLegsToNeutral();
-  Serial.println("#30 P1500 # 31 p1500 T200");
+  Serial.println("#30 P1500 #31 p1500 T200");
   
   crab.uploadToController(2000);
  
@@ -16,14 +16,34 @@ void setup() {
    
 }
 void loop(){
-  testingServo(2000);
-  delay(1000);
+   //Serial.println("#30 P1500 #31 p1500 T200");
 
-  testingServo(1000);
-  delay(1000);
+  for(int i=0; i< 3; i++) {
+    testingServo(2000);
+    delay(1000);
+  }
 
-  testingServo(500);
-  delay(1000);
+  for(int i=0; i< 3; i++) {
+    testingServo(1000);
+    delay(1000);
+  }
+
+  for(int i=0; i< 3; i++) {
+    testingServo(500);
+    delay(1000);
+  }
+
+  for(int i=0; i< 3; i++) {
+    testingServo(300);
+    delay(1000);
+  }
+
+  for(int i=0; i< 3; i++) {
+    testingServo(100);
+    delay(1000);
+  }
+
+ 
 
   
 }
@@ -61,7 +81,7 @@ void testingServo(int time) {
   crab.liftClaw(p);
   crab.rotateClawToLeft(p);
 
-  Serial.print("#30 P1300 #32 P1100");
+  Serial.print("#30 P1300 #31 P1700");
   
   crab.uploadToController(time);
   delay(2*time);
@@ -94,7 +114,7 @@ void testingServo(int time) {
   crab.LowerClaw(p);
   crab.rotateClawToRight(p);
 
-  Serial.print("#30 P1500 #32 P1500");
+  Serial.print("#30 P1500 #31 P1500");
   crab.uploadToController(time);
   delay(2*time);  
 
