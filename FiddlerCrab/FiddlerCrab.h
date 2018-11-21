@@ -9,5 +9,6 @@ class FiddlerCrab: public ClawController, public LegsController {
     
     void uploadToController();
     void uploadToController(int time);
+    void neutralPosition();
 };
 #endif

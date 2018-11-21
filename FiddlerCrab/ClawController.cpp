@@ -67,7 +67,7 @@ void ClawController::liftClaw(int pos){
   up_down_p = up_down_p - pos;
 }
 
-void ClawController::LowerClaw(int pos){
+void ClawController::lowerClaw(int pos){
   up_down_p = up_down_p + pos;
 }
 

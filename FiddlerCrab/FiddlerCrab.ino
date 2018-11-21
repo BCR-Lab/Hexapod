@@ -5,48 +5,108 @@ FiddlerCrab crab;
 
 void setup() {
   Serial.begin(115200);
-  crab.setClawToNeutral();
-  crab.setLegsToNeutral();
+  crab.neutralPosition();
   Serial.println("#30 P1500 #31 p1500 T200");
-  
   crab.uploadToController(2000);
+  delay(2000);
  
-  
-
    
 }
+
+/*void loop() {
+  presentation();
+} */
+
+
 void loop(){
-   //Serial.println("#30 P1500 #31 p1500 T200");
+  int pos =300;
 
-  for(int i=0; i< 3; i++) {
-    testingServo(2000);
-    delay(1000);
+  /**
+   * claw demonstration 
+   */
+  //turn left
+  crab.turnClawToLeft(pos);
+  crab.uploadToController(200);
+  delay(500);
+
+  //return back to center
+  crab.turnClawToRight(pos);
+  crab.uploadToController(200);
+  delay(500);
+
+  //turn to right
+  crab.turnClawToRight(pos);
+  crab.uploadToController(200);
+  delay(500);
+
+  //back to center
+  crab.turnClawToLeft(pos);
+  crab.uploadToController(200);
+  delay(500);
+
+  crab.liftClaw( pos);
+  crab.uploadToController(200);
+  delay(500);
+
+  //showing claw open and close
+  for(int i=0; i<3; i++) {
+    crab.fully_open();
+    crab.uploadToController(200);
+    delay(100);
+  
+    crab.fully_close();
+    crab.uploadToController(200);
+    delay(100);
   }
 
-  for(int i=0; i< 3; i++) {
-    testingServo(1000);
-    delay(1000);
-  }
+  delay(2000);
 
-  for(int i=0; i< 3; i++) {
-    testingServo(500);
-    delay(1000);
-  }
+  /**
+   * gripping demonstration
+   */
+  crab.lowerClaw( pos);
+  crab.uploadToController(200);
+  delay(500);
 
-  for(int i=0; i< 3; i++) {
-    testingServo(300);
-    delay(1000);
-  }
+  crab.fully_open();
+  crab.uploadToController(200);
+  delay(500);
+  
+  crab.sit();
+  crab.uploadToController(300);
+  delay(1000);
 
-  for(int i=0; i< 3; i++) {
-    testingServo(100);
-    delay(1000);
-  }
+  crab.fully_close();
+  crab.uploadToController(200);
+  delay(500);
 
- 
+  crab.setLegsToNeutral(); 
+  crab.uploadToController(200);
+  delay(1000);
+
+  crab.stand(); 
+  crab.uploadToController(200);
+  delay(2000);
+
+  crab.setLegsToNeutral(); 
+  crab.uploadToController(200);
+  delay(1000);
+
+  crab.sit();
+  crab.uploadToController(300);
+  delay(1000);
+
+  crab.fully_open();
+  crab.uploadToController(200);
+  delay(1000);
+
+  crab.setLegsToNeutral(); 
+  crab.uploadToController(200);
+  delay(1000);
 
   
 }
+
 
 
 void testingServo(int time) {
@@ -111,11 +171,11 @@ void testingServo(int time) {
 
   crab.fully_close();
   crab.turnClawToRight(p);
-  crab.LowerClaw(p);
+  crab.lowerClaw(p);
   crab.rotateClawToRight(p);
 
   Serial.print("#30 P1500 #31 P1500");
   crab.uploadToController(time);
-  delay(2*time);  
+  delay(2*time);           
 
 }

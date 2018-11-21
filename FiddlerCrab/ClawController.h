@@ -49,7 +49,7 @@ class ClawController {
     void turnClawToLeft(int pos);
     void turnClawToRight(int pos);
     void liftClaw(int pos);
-    void LowerClaw(int pos);
+    void lowerClaw(int pos);
     void rotateClawToLeft(int pos);
     void rotateClawToRight(int pos);
     void writeToClawServos(); 

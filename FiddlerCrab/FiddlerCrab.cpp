@@ -13,3 +13,8 @@ void FiddlerCrab::uploadToController(int time){
   Serial.println(time);
   
 }
+
+void FiddlerCrab::neutralPosition() {
+  setClawToNeutral();
+  setLegsToNeutral();
+}
