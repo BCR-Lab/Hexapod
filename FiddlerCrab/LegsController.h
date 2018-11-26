@@ -1,3 +1,5 @@
+// @author Ting Ting Huang
+
 #ifndef LEGSCONTROLLER_H
 #define LEGSCONTROLLER_H
 

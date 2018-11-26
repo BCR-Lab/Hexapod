@@ -1,14 +1,15 @@
+// @author Ting Ting Huang
+
 #include "FiddlerCrab.h"
 
-void FiddlerCrab::uploadToController(){
+void FiddlerCrab::uploadToSerialPort(){
   writeToClawServos();
   writeToLegServos();
 }
 
-void FiddlerCrab::uploadToController(int time){
-  writeToClawServos();
-  writeToLegServos();
-
+void FiddlerCrab::uploadToSerialPort(int time){
+  uploadToSerialPort();
+  
   Serial.print("T");
   Serial.println(time);
   

@@ -1,3 +1,5 @@
+// @author Ting Ting Huang
+
 #ifndef FIDDLERCRAB_H
 #define FIDDLERCRAB_H
 
@@ -7,8 +9,8 @@
 class FiddlerCrab: public ClawController, public LegsController {
 	public:
     
-    void uploadToController();
-    void uploadToController(int time);
+    void uploadToSerialPort();
+    void uploadToSerialPort(int time);
     void neutralPosition();
 };
 #endif

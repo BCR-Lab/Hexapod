@@ -1,3 +1,5 @@
+// @author Ting Ting Huang
+
 #include "LegsController.h"
 
 void LegsController::stand(){
@@ -189,6 +191,8 @@ void LegsController::writeToServo(int servo, int position) {
    
 }
 
+// pair each servos with its desired postion
+// used writeToServo funtion to print these data to the serial port
 void LegsController::writeToLegServos() {
   for(int i=0; i<6; i++) {
     writeToServo(HHS[i], HHSP[i]);
