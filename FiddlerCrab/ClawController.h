@@ -29,18 +29,18 @@ class ClawController {
 
   public:
   
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    //l_fully_open: set the limitaion of how far the left part of the claw can move outward.   //
-    //r_fully_open: set the limitaion of how far the right part of the claw can move outward.  //
-    //l_fully_close: set the limitaion of how close the left part of the claw can move inward. //
-    //r_fully_close: set the limitaion of how close the right part of the claw can move inward.//
-    /////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    //lFullyOpenP: set the limitaion of how far the left part of the claw can move outward.   //
+    //rFullyOpenP: set the limitaion of how far the right part of the claw can move outward.  //
+    //lFullyCloseP: set the limitaion of how close the left part of the claw can move inward. //
+    //rFullyCloseP: set the limitaion of how close the right part of the claw can move inward.//
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
-    int l_fully_open;
-    int r_fully_open;
+    int lFullyOpenP;
+    int rFullyOpenP;
 
-    int l_fully_close;
-    int r_fully_close;
+    int lFullyCloseP;
+    int rFullyCloseP;
 
      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //left_claw_p: used to hold the current angular position of the servo ID controls the left part of the claw             //
@@ -50,16 +50,16 @@ class ClawController {
     //rotation_p: used to hold the current angular position of the servo ID that controls the claw's rotational motion      //
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    int left_claw_p;
-    int right_claw_p;
-    int up_down_p;
-    int left_right_p;
-    int rotation_p;
+    int leftClawP;
+    int rightClawP;
+    int upDownP;
+    int leftRightP;
+    int rotationP;
     
 
     ClawController();
 
-    ClawController(int l_open, int r_open, int l_close, int r_close);
+    ClawController(int lOpen, int rOpen, int lClose, int rClose);
     
 
     /**

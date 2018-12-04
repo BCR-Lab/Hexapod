@@ -16,6 +16,7 @@ void setup() {
 }
 
 void loop() {
+  /*
   for(int i =0; i<3; i++){
     testingServo(250);
   }
@@ -45,7 +46,7 @@ void loop() {
     testingServo(50);
   }
   delay(2000);
-
+*/
 } 
 
 
@@ -135,6 +136,7 @@ void presentation(){
    * claw demonstration 
    */
   //turn claw left
+  
   crab.turnClawToLeft(pos);
   crab.uploadToSerialPort(500);
   delay(500);

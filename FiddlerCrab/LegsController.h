@@ -40,47 +40,48 @@ public:
  
 
   
-  void lift_left_frontleg(int p);
-  void lower_left_frontleg(int p);
-  void left_frontknee_out(int p);
-  void left_frontknee_in(int p);
-  void left_frontleg_forward(int p);
-  void left_frontleg_backward(int p);
+  void liftLF(int p);
+  void lowerLF(int p);
+  void moveLFKneeOutward(int p);
+  void moveLFKneeInward(int p);
+  void moveLFForward(int p);
+  void moveLFBackward(int p);
    
-  void lift_left_middleleg(int p);
-  void lower_left_middleleg(int p);
-  void left_middleknee_out(int p);
-  void left_middleknee_in(int p);
-  void left_middleleg_forward(int p);
-  void left_middleleg_backward(int p);
+  
+  void liftLM(int p);
+  void lowerLM(int p);
+  void moveLMKneeOutward(int p);
+  void moveLMKneeInward(int p);
+  void moveLMForward(int p);
+  void moveLMBackward(int p);
 
-  void lift_left_rearleg(int p);
-  void lower_left_rearleg(int p);
-  void left_rearknee_out(int p);
-  void left_rearknee_in(int p);
-  void left_rearleg_forward(int p);
-  void left_rearleg_backward(int p);
+  void liftLR(int p);
+  void lowerLR(int p);
+  void moveLRKneeOutward(int p);
+  void moveLRKneeInward(int p);
+  void moveLRForward(int p);
+  void moveLRBackward(int p);
 
-  void lift_right_frontleg(int p);
-  void lower_right_frontleg(int p);
-  void right_frontknee_out(int p);
-  void right_frontknee_in(int p);
-  void right_frontleg_forward(int p);
-  void right_frontleg_backward(int p);
+  void liftRF(int p);
+  void lowerRF(int p);
+  void moveRFKneeOutward(int p);
+  void moveRFKneeInward(int p);
+  void moveRFForward(int p);
+  void moveRFBackward(int p);
 
-  void lift_right_middleleg(int p);
-  void lower_right_middleleg(int p);
-  void right_middleknee_out(int p);
-  void right_middleknee_in(int p);
-  void right_middleleg_forward(int p);
-  void right_middleleg_backward(int p);
+  void liftRM(int p);
+  void lowerRM(int p);
+  void moveRMKneeOutward(int p);
+  void moveRMKneeInward(int p);
+  void moveRMForward(int p);
+  void moveRMBackward(int p);
 
-  void lift_right_rearleg(int p);
-  void lower_right_rearleg(int p);
-  void right_rearknee_out(int p);
-  void right_rearknee_in(int p);
-  void right_rearleg_forward(int p);
-  void right_rearleg_backward(int p);
+  void liftRR(int p);
+  void lowerRR(int p);
+  void moveRRKneeOutward(int p);
+  void moveRRKneeInward(int p);
+  void moveRRForward(int p);
+  void moveRRBackward(int p);
   
   void writeToServo(int servo, int position);
   void writeToLegServos();

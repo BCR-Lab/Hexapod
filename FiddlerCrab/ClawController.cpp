@@ -9,10 +9,10 @@
 
 ClawController::ClawController(){
   
-  l_fully_open=1450;
-  r_fully_open=1500;
-  l_fully_close=1210;
-  r_fully_close=1740;
+  lFullyOpenP=1450;
+  rFullyOpenP=1500;
+  lFullyCloseP=1210;
+  rFullyCloseP=1740;
   
 }
 
@@ -21,11 +21,11 @@ ClawController::ClawController(){
 // it takes the value of the arguments to set the minimum angular posion and maximum angular position that the claw can move//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-ClawController::ClawController(int l_open, int r_open, int l_close, int r_close ) {
-  l_fully_open=l_open;
-  r_fully_open=r_open;
-  l_fully_close=l_close;
-  r_fully_close=r_close;
+ClawController::ClawController(int lOpen, int rOpen, int lClose, int rClose ) {
+  lFullyOpenP=lOpen;
+  rFullyOpenP=rOpen;
+  lFullyCloseP=lClose;
+  rFullyCloseP=rClose;
 }
 
 
@@ -34,11 +34,11 @@ ClawController::ClawController(int l_open, int r_open, int l_close, int r_close 
 ////////////////////////////////////////////////////////////////
 
 void ClawController::setClawToNeutral() {
-  left_claw_p = 1450;
-  right_claw_p = 1500;
-  up_down_p = 1500;
-  left_right_p = 1500;
-  rotation_p = 1600;
+  leftClawP = 1450;
+  rightClawP = 1500;
+  upDownP = 1500;
+  leftRightP = 1500;
+  rotationP = 1600;
 
 }
 
@@ -49,8 +49,8 @@ void ClawController::setClawToNeutral() {
 
 void ClawController::fullyCloseClaw() { 
   
-  left_claw_p = l_fully_close;
-  right_claw_p = r_fully_close;
+  leftClawP = lFullyCloseP;
+  rightClawP = rFullyCloseP;
   
 }
 
@@ -72,8 +72,8 @@ void ClawController::close(int left_dest, int right_dest){
 
 void ClawController::fullyOpenClaw() {
 
-  left_claw_p = l_fully_open;
-  right_claw_p = r_fully_open;
+  leftClawP = lFullyOpenP;
+  rightClawP = rFullyOpenP;
  
 }
 
@@ -89,43 +89,43 @@ void ClawController::fullyOpenClaw() {
 
 void ClawController::closeClaw(int pos){
   
-  left_claw_p = left_claw_p - pos;
-  right_claw_p =  right_claw_p + pos;
+  leftClawP = leftClawP - pos;
+  rightClawP =  rightClawP + pos;
 
 }
 
 void ClawController::openClaw(int pos){
   
-  left_claw_p = left_claw_p + pos;
-  right_claw_p =  right_claw_p - pos;
+  leftClawP = leftClawP + pos;
+  rightClawP =  rightClawP - pos;
 
 }
 
 void ClawController::turnClawToLeft(int pos) {
-  left_right_p=left_right_p - pos;
+  leftRightP = leftRightP - pos;
 }
 
 void ClawController::turnClawToRight(int pos) {
   
-  left_right_p=left_right_p + pos;
+  leftRightP = leftRightP + pos;
 }
 
 void ClawController::liftClaw(int pos){
-  up_down_p = up_down_p - pos;
+  upDownP = upDownP - pos;
 }
 
 void ClawController::lowerClaw(int pos){
-  up_down_p = up_down_p + pos;
+  upDownP = upDownP + pos;
 }
 
 
 void ClawController::rotateClawToLeft(int pos) {
-  rotation_p = rotation_p + pos;
+  rotationP = rotationP + pos;
 }
 
 void ClawController::rotateClawToRight(int pos) {
   
-  rotation_p = rotation_p - pos;
+  rotationP = rotationP - pos;
 }
 
 void ClawController::writeToServo(int servo, int position, int time) {	
@@ -159,10 +159,10 @@ void ClawController::writeToServo(int servo, int position) {
 
 void ClawController::writeToClawServos(){
 
-  writeToServo(LEFT_CLAW, left_claw_p);
-  writeToServo(RIGHT_CLAW, right_claw_p);
-  writeToServo(UP_DOWN, up_down_p);
-  writeToServo(LEFT_RIGHT, left_right_p);
-  writeToServo(ROTATION, rotation_p);
+  writeToServo(LEFT_CLAW, leftClawP);
+  writeToServo(RIGHT_CLAW, rightClawP);
+  writeToServo(UP_DOWN, upDownP);
+  writeToServo(LEFT_RIGHT, leftRightP);
+  writeToServo(ROTATION, rotationP);
   
 }

@@ -55,129 +55,129 @@ void LegsController::setLegsToNeutral(){
 
 }
 //left front leg controller
-void LegsController::lift_left_frontleg(int p){
+void LegsController::liftLF(int p){
    VHSP[0]=VHSP[0]-p;
 }
-void LegsController::lower_left_frontleg(int p){
+void LegsController::lowerLF(int p){
    VHSP[0]=VHSP[0]+p;
 }
-void LegsController::left_frontknee_out(int p){
+void LegsController::moveLFKneeOutward(int p){
    KSP[0]=KSP[0]+p;
 }
-void LegsController::left_frontknee_in(int p){
+void LegsController::moveLFKneeInward(int p){
    KSP[0]=KSP[0]-p;
 }
 
-void LegsController::left_frontleg_forward(int p){
+void LegsController::moveLFForward(int p){
   HHSP[0]=HHSP[0] - p;
 }
-void LegsController::left_frontleg_backward(int p){
+void LegsController::moveLFBackward(int p){
   HHSP[0]=HHSP[0] + p;
 }
 
 //left middile leg controller
-void LegsController::lift_left_middleleg(int p){
+void LegsController::liftLM(int p){
    VHSP[2]=VHSP[2]-p;
 }
-void LegsController::lower_left_middleleg(int p){
+void LegsController::lowerLM(int p){
    VHSP[2]=VHSP[2]+p;
 }
-void LegsController::left_middleknee_out(int p){
+void LegsController::moveLMKneeOutward(int p){
    KSP[2]=KSP[2]+p;
 }
-void LegsController::left_middleknee_in(int p){
+void LegsController::moveLMKneeInward(int p){
    KSP[2]=KSP[2]-p;
 }
 
-void LegsController::left_middleleg_forward(int p){
+void LegsController::moveLMForward(int p){
   HHSP[2]=HHSP[2] - p;
 }
-void LegsController::left_middleleg_backward(int p){
+void LegsController::moveLMBackward(int p){
   HHSP[2]=HHSP[2] + p;
 }
 
 //left rear leg controller
-void LegsController::lift_left_rearleg(int p){
+void LegsController::liftLR(int p){
    VHSP[4]=VHSP[4]-p;
 }
-void LegsController::lower_left_rearleg(int p){
+void LegsController::lowerLR(int p){
    VHSP[4]=VHSP[4]+p;
 }
-void LegsController::left_rearknee_out(int p){
+void LegsController::moveLRKneeOutward(int p){
    KSP[4]=KSP[4]+p;
 }
-void LegsController::left_rearknee_in(int p){
+void LegsController::moveLRKneeInward(int p){
    KSP[4]=KSP[4]-p;
 }
 
-void LegsController::left_rearleg_forward(int p){
+void LegsController::moveLRForward(int p){
   HHSP[4]=HHSP[4] - p;
 }
-void LegsController::left_rearleg_backward(int p){
+void LegsController::moveLRBackward(int p){
   HHSP[4]=HHSP[4] + p;
 }
 
 //right front leg controller
-void LegsController::lift_right_frontleg(int p){
+void LegsController::liftRF(int p){
    VHSP[1]=VHSP[1]+p;
 }
-void LegsController::lower_right_frontleg(int p){
+void LegsController::lowerRF(int p){
    VHSP[1]=VHSP[1]-p;
 }
-void LegsController::right_frontknee_out(int p){
+void LegsController::moveRFKneeOutward(int p){
    KSP[1]=KSP[1]-p;
 }
-void LegsController::right_frontknee_in(int p){
+void LegsController::moveRFKneeInward(int p){
    KSP[1]=KSP[1]+p;
 }
 
-void LegsController::right_frontleg_forward(int p){
+void LegsController::moveRFForward(int p){
   HHSP[1]=HHSP[1] + p;
 }
-void LegsController::right_frontleg_backward(int p){
+void LegsController::moveRFBackward(int p){
   HHSP[1]=HHSP[1] - p;
 }
 
 
 //right middler leg controller
-void LegsController::lift_right_middleleg(int p){
+void LegsController::liftRM(int p){
    VHSP[3]=VHSP[3]+p;
 }
-void LegsController::lower_right_middleleg(int p){
+void LegsController::lowerRM(int p){
    VHSP[3]=VHSP[3]-p;
 }
-void LegsController::right_middleknee_out(int p){
+void LegsController::moveRMKneeOutward(int p){
    KSP[3]=KSP[3]-p;
 }
-void LegsController::right_middleknee_in(int p){
+void LegsController::moveRMKneeInward(int p){
    KSP[3]=KSP[3]+p;
 }
 
-void LegsController::right_middleleg_forward(int p){
+void LegsController::moveRMForward(int p){
   HHSP[3]=HHSP[3] + p;
 }
-void LegsController::right_middleleg_backward(int p){
+void LegsController::moveRMBackward(int p){
   HHSP[3]=HHSP[3] - p;
 }
 
 //right rear leg controller
-void LegsController::lift_right_rearleg(int p){
+void LegsController::liftRR(int p){
    VHSP[5]=VHSP[5]+p;
 }
-void LegsController::lower_right_rearleg(int p){
+void LegsController::lowerRR(int p){
    VHSP[5]=VHSP[5]-p;
 }
-void LegsController::right_rearknee_out(int p){
+void LegsController::moveRRKneeOutward(int p){
    KSP[5]=KSP[5]-p;
 }
-void LegsController::right_rearknee_in(int p){
+void LegsController::moveRRKneeInward(int p){
    KSP[5]=KSP[5]+p;
 }
 
-void LegsController::right_rearleg_forward(int p){
+void LegsController::moveRRForward(int p){
   HHSP[5]=HHSP[5] + p;
 }
-void LegsController::right_rearleg_backward(int p){
+void LegsController::moveRRBackward(int p){
   HHSP[5]=HHSP[5] - p;
 }
 
