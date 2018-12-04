@@ -68,10 +68,10 @@ class ClawController {
      */
     void setClawToNeutral();
     
-    void fully_open();
-    void fully_close();
-    void close(int pos);
-    void open(int pos);
+    void fullyOpenClaw();
+    void fullyCloseClaw();
+    void closeClaw(int pos);
+    void openClaw(int pos);
     void turnClawToLeft(int pos);
     void turnClawToRight(int pos);
     void liftClaw(int pos);

@@ -47,7 +47,7 @@ void ClawController::setClawToNeutral() {
 // with the value that would make the claw to be fully close                                    //  
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-void ClawController::fully_close() { 
+void ClawController::fullyCloseClaw() { 
   
   left_claw_p = l_fully_close;
   right_claw_p = r_fully_close;
@@ -70,7 +70,7 @@ void ClawController::close(int left_dest, int right_dest){
 // with the value that would make the claw to be fully opened                                   //  
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-void ClawController::fully_open() {
+void ClawController::fullyOpenClaw() {
 
   left_claw_p = l_fully_open;
   right_claw_p = r_fully_open;
@@ -80,21 +80,21 @@ void ClawController::fully_open() {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//The methods: close(int),open(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int), lowerClaw(int), //       
-// rotateClawToLeft(int), and rotateClawToRight(int) all perform simular function.                            //
+//The methods: closeClaw(int),openClaw(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int),         //
+//lowerClaw(int),rotateClawToLeft(int), and rotateClawToRight(int) all perform simular function.              //
 // They all take in the value of position you want the motor of the command Servo to move to,                 //
 // convert it into a angular position                                                                         //
 // and assign the value to the varible that are in charge for hold position of that servo ID                  //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void ClawController::close(int pos){
+void ClawController::closeClaw(int pos){
   
   left_claw_p = left_claw_p - pos;
   right_claw_p =  right_claw_p + pos;
 
 }
 
-void ClawController::open(int pos){
+void ClawController::openClaw(int pos){
   
   left_claw_p = left_claw_p + pos;
   right_claw_p =  right_claw_p - pos;
