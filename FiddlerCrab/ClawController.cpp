@@ -4,7 +4,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // default constructor                                                                                      //
-// it sets the minimum angular posion and maximum angular position that the claw can move with default value//
+// it sets the minimum angular posion and maximum angular position that the claw can move                   //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ClawController::ClawController(){
