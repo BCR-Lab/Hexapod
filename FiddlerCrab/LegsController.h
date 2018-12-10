@@ -28,7 +28,7 @@ class LegsController{
   
 public:
 
-  //position for HHS, VHS, and KS'
+  //holding position for the servos in HHS[], VHS[], and KS[]. 
   int HHSP[6];
   int VHSP[6];
   int KSP[6];
@@ -85,6 +85,7 @@ public:
   
   void writeToServo(int servo, int position);
   void writeToLegServos();
+  void writeToLegServos(int time);
  
 
 

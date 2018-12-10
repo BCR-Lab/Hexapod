@@ -2,6 +2,7 @@
 
 #include "LegsController.h"
 
+
 void LegsController::stand(){
   /**the position for vertical hip servo(the middle servo of the leg)
    *is different than the position of horizontal hip and knee servo (P1500)
@@ -200,4 +201,11 @@ void LegsController::writeToLegServos() {
     writeToServo(KS[i], KSP[i]);
     
   }
+}
+
+void LegsController::writeToLegServos(int time) {
+  writeToLegServos();
+  Serial.print("T");
+  Serial.println(time);
+  
 }

@@ -80,11 +80,11 @@ void ClawController::fullyOpenClaw() {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//The methods: closeClaw(int),openClaw(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int),         //
-//lowerClaw(int),rotateClawToLeft(int), and rotateClawToRight(int) all perform simular function.              //
-// They all take in the value of position you want the motor of the command Servo to move to,                 //
-// convert it into a angular position                                                                         //
-// and assign the value to the varible that are in charge for hold position of that servo ID                  //
+// The methods: closeClaw(int),openClaw(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int),        //
+// lowerClaw(int),rotateClawToLeft(int), and rotateClawToRight(int) all perform similar function.             //
+// They all take in one argument (how many angular position you want the motor to move).                      //
+// Then use the value to calculate the destination position and assign it to the variable that                //
+// is in charge for hold position of the command servo ID                                                      //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ClawController::closeClaw(int pos){
@@ -165,4 +165,14 @@ void ClawController::writeToClawServos(){
   writeToServo(LEFT_RIGHT, leftRightP);
   writeToServo(ROTATION, rotationP);
   
+}
+
+
+////////////////////////////////////////////////////////
+// print command and execution time to the serial port//
+////////////////////////////////////////////////////////
+void ClawController::writeToClawServos(int time){
+  writeToClawServos();
+  Serial.print("T");
+  Serial.println(time);
 }

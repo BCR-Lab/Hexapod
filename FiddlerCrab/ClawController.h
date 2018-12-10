@@ -79,6 +79,7 @@ class ClawController {
     void rotateClawToLeft(int pos);
     void rotateClawToRight(int pos);
     void writeToClawServos(); 
+    void writeToClawServos(int time); 
     void writeToServo(int servo, int position, int time);
     void writeToServo(int servo, int position);
     //void close(int left_dest, int right_dest);

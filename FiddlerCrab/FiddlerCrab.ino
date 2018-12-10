@@ -49,7 +49,7 @@ void loop() {
 */
 } 
 
-
+/*
 
 void testingServo(int time) {
 
@@ -121,7 +121,7 @@ void testingServo(int time) {
   delay(2*time);           
 
 }
-
+*/
 ////////////////////////////////////////////////////////////
 
 
