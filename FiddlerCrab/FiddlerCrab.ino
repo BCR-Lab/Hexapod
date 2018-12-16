@@ -4,50 +4,68 @@
 #include "FiddlerCrab.h"
 
 FiddlerCrab crab;
+ClawController claw;
 
 void setup() {
   Serial.begin(115200);
-  
   crab.neutralPosition();
-  Serial.println("#30 P1500 #31 p1500 T200");
+  Serial.println("#30 P1500 #31 p1500 T200");  //for tail
   crab.uploadToSerialPort(2000);
   delay(2000);
+ 
+  
+  
    
 }
 
 void loop() {
-  /*
-  for(int i =0; i<3; i++){
-    testingServo(250);
-  }
-  delay(2000);
-  
-  for(int i =0; i<3; i++){
-    testingServo(200);
-  }
-  delay(2000);
 
-  for(int i =0; i<3; i++){
-    testingServo(150);
-  }
-  delay(2000);
-
-  for(int i =0; i<3; i++) {
-    testingServo(100);
-  }
-  delay(2000);
-
-  for(int i =0; i<3; i++) {
-    testingServo(80);
-  }
-  delay(2000);
-
-  for(int i =0; i<3; i++) {
-    testingServo(50);
-  }
-  delay(2000);
-*/
+ presentation();
+ 
 } 
+
+void testGripping() {
+  claw.lowerClaw(220);
+  claw.writeToClawServos(150);
+ 
+
+  claw.fullyOpenClaw();
+  claw.writeToClawServos(150);
+
+
+  claw.closeClaw(180);
+  claw.writeToClawServos(150);
+
+  
+  claw.liftClaw(220);
+  claw.writeToClawServos(150);
+
+ 
+  claw.turnClawToLeft(200);
+  claw.writeToClawServos(150);
+
+  //back to center
+  claw.turnClawToRight(200);
+  claw.writeToClawServos(150);
+
+  claw.turnClawToRight(200);
+  claw.writeToClawServos(150);
+
+  //back to center
+  claw.turnClawToLeft(200);
+  claw.writeToClawServos(150);
+
+  claw.lowerClaw(220);
+  claw.writeToClawServos(150);
+
+  claw.fullyOpenClaw();
+  claw.writeToClawServos(150);
+
+  claw.liftClaw(220);
+  claw.writeToClawServos(150);
+
+  
+}
 
 /*
 
@@ -122,15 +140,12 @@ void testingServo(int time) {
 
 }
 */
-////////////////////////////////////////////////////////////
+
 
 
 void presentation(){
-  crab.neutralPosition();
-  Serial.println("#30 P1500 #31 p1500 T200");
-  crab.uploadToSerialPort(2000);
-  delay(2000);
-  int pos =500;
+ 
+  int pos =400;
 
   /**
    * claw demonstration 
@@ -138,37 +153,36 @@ void presentation(){
   //turn claw left
   
   crab.turnClawToLeft(pos);
-  crab.uploadToSerialPort(500);
+  crab.uploadToSerialPort(300);
   delay(500);
 
   //return back to center
   crab.turnClawToRight(pos);
-  crab.uploadToSerialPort(500);
+  crab.uploadToSerialPort(300);
   delay(500);
 
   //turn to claw right
   crab.turnClawToRight(pos);
-  crab.uploadToSerialPort(500);
+  crab.uploadToSerialPort(300);
   delay(500);
 
   //back to center
   crab.turnClawToLeft(pos);
-  crab.uploadToSerialPort(500);
+  crab.uploadToSerialPort(200);
   delay(500);
 
   crab.liftClaw( pos);
-  crab.uploadToSerialPort(300);
+  crab.uploadToSerialPort(200);
   delay(500);
 
   //showing claw open and close
-  for(int i=0; i<5; i++) {
+  for(int i=0; i<9; i++) {
     crab.fullyOpenClaw();
-    crab.uploadToSerialPort(300);
-    delay(400);
-  
+    crab.uploadToSerialPort(150);
+     
     crab.fullyCloseClaw();
-    crab.uploadToSerialPort(300);
-    delay(400);
+    crab.uploadToSerialPort(150);
+  
   }
 
   delay(2000);
@@ -185,34 +199,73 @@ void presentation(){
   crab.uploadToSerialPort(300);
   delay(500);
   
-  crab.sit();
-  crab.uploadToSerialPort(300);
-  delay(1000);
 
   crab.lowerClaw( pos);
   crab.uploadToSerialPort(300);
   delay(500);
 
-  crab.closeClaw(120);
+  crab.closeClaw(180);
   crab.uploadToSerialPort(300);
   delay(500);
 
+  //neck to center
   crab.liftClaw( pos);
   crab.uploadToSerialPort(300);
   delay(500);
 
-  crab.setLegsToNeutral(); 
-  crab.uploadToSerialPort(200);
-  delay(1000);
-
-  crab.stand(); 
+  crab.liftBody(); 
   crab.uploadToSerialPort(200);
   delay(2000);
 
-  crab.liftClaw(pos);
-  crab.uploadToSerialPort(200);
-  delay(2000);
+  //claw up
+  crab.liftClaw( pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
 
+  //turn claw left
+  
+  crab.turnClawToLeft(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //return back to center
+  crab.turnClawToRight(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //turn to claw right
+  crab.turnClawToRight(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //back to center
+  crab.turnClawToLeft(pos);
+  crab.uploadToSerialPort(200);
+  delay(500);
+
+  //turn claw left
+  
+  crab.turnClawToLeft(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //return back to center
+  crab.turnClawToRight(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //turn to claw right
+  crab.turnClawToRight(pos);
+  crab.uploadToSerialPort(300);
+  delay(500);
+
+  //back to center
+  crab.turnClawToLeft(pos);
+  crab.uploadToSerialPort(200);
+  delay(500);
+
+  
+ //neck center
   crab.lowerClaw( pos);
   crab.uploadToSerialPort(300);
   delay(500);

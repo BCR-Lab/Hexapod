@@ -2,10 +2,11 @@
 
 #include "ClawController.h"
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// default constructor                                                                                      //
-// it sets the minimum angular posion and maximum angular position that the claw can move                   //
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * ClawController()
+ * default constructor                                                                                      
+ * it sets the minimum angular posion and maximum angular position that the claw can move                   
+ */
 
 ClawController::ClawController(){
   
@@ -16,10 +17,11 @@ ClawController::ClawController(){
   
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Parametrized Constructor                                                                                                  //
-// it takes the value of the arguments to set the minimum angular posion and maximum angular position that the claw can move//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * ClawController(int lOpen, int rOpen, int lClose, int rClose )
+ * Parametrized Constructor                                                                                                  
+ * it takes the value of the arguments to set the minimum and maximum distance that the claw can open and close
+ */
 
 ClawController::ClawController(int lOpen, int rOpen, int lClose, int rClose ) {
   lFullyOpenP=lOpen;
@@ -29,9 +31,10 @@ ClawController::ClawController(int lOpen, int rOpen, int lClose, int rClose ) {
 }
 
 
-////////////////////////////////////////////////////////////////
-// it set the angualr position of all the servos to 90 degree//
-////////////////////////////////////////////////////////////////
+/**
+ * setClawToNeutral() 
+ * it set the angular position of all the servos to 0 degree (stay on center of the servo)
+ */
 
 void ClawController::setClawToNeutral() {
   leftClawP = 1450;
@@ -42,10 +45,11 @@ void ClawController::setClawToNeutral() {
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////                                                                                       //
-// The method assigns the varibales that are used to hold the postion of the crab's two fingers //
-// with the value that would make the claw to be fully close                                    //  
-//////////////////////////////////////////////////////////////////////////////////////////////////
+/**                                                                                      
+ * fullyCloseClaw()                                                                                      
+ * The method assigns the varibales that are used to hold the postion of the crab's two fingers 
+ * with the value that would make the claw to be fully close                                    
+ */
 
 void ClawController::fullyCloseClaw() { 
   
@@ -54,21 +58,13 @@ void ClawController::fullyCloseClaw() {
   
 }
 
-/**
-void ClawController::close(int left_dest, int right_dest){
-  
-  left_claw_p = left_dest;
-  right_claw_p = right_dest;
-
-}
-*/
 
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////                                                                                       //
-// The method assigns the varibales that are used to hold the postion of the crab's two fingers //
-// with the value that would make the claw to be fully opened                                   //  
-//////////////////////////////////////////////////////////////////////////////////////////////////
+/**                                                                                      
+ * fullyOpenClaw()                                                                                      
+ * The method assigns the varibales that are used to hold the postion of the crab's two fingers 
+ * with the value that would make the claw to be fully opened                                   
+ */
 
 void ClawController::fullyOpenClaw() {
 
@@ -79,13 +75,14 @@ void ClawController::fullyOpenClaw() {
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// The methods: closeClaw(int),openClaw(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int),        //
-// lowerClaw(int),rotateClawToLeft(int), and rotateClawToRight(int) all perform similar function.             //
-// They all take in one argument (how many angular position you want the motor to move).                      //
-// Then use the value to calculate the destination position and assign it to the variable that                //
-// is in charge for hold position of the command servo ID                                                      //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * The methods: closeClaw(int),openClaw(int), turnClawToLeft(int), turnClawToRight(int),liftClaw(int),        
+ * lowerClaw(int),rotateClawToLeft(int), and rotateClawToRight(int) all perform similar function.             
+ * 
+ * They all take in one argument (how many angular position you want the motor to move).                      
+ * Then use the value to calculate the destination position and assign it to the variable that                
+ * is in charge for hold position of that spefic command servo ID                                                      
+ */
 
 void ClawController::closeClaw(int pos){
   
@@ -127,21 +124,23 @@ void ClawController::rotateClawToRight(int pos) {
   
   rotationP = rotationP - pos;
 }
-
+/**
+ * writeToServo(int servo, int position, int time)
+ * It's used for moving one servo at a time
+ */
+ /**
 void ClawController::writeToServo(int servo, int position, int time) {	
 
-   Serial.print("#");
-   Serial.print(servo);
-   Serial.print(" P");
-   Serial.print(position);
+   writeToServo(servo, position);
    Serial.print(" T");
    Serial.println(time);
    delay(time); 
 }
-
-//////////////////////////////////////////////////////////////////
-//print the servo ID with its command postion to the serial port//
-//////////////////////////////////////////////////////////////////
+*/
+/**
+ * writeToServo(int servo, int position)
+ * print the servo ID with its command postion to the serial port
+ */
 void ClawController::writeToServo(int servo, int position) {  
 
    Serial.print("#");
@@ -152,10 +151,11 @@ void ClawController::writeToServo(int servo, int position) {
 }
 
 
-/////////////////////////////////////////////////////////////////////
-// pair each servos with its desired postion                       //     
-// used writeToServo funtion to print these data to the serial port//
-/////////////////////////////////////////////////////////////////////
+/**
+ * writeToClawServos()
+ * pair each servos with its desired postion                           
+ * used writeToServo funtion to print these data to the serial port
+ */
 
 void ClawController::writeToClawServos(){
 
@@ -165,14 +165,17 @@ void ClawController::writeToClawServos(){
   writeToServo(LEFT_RIGHT, leftRightP);
   writeToServo(ROTATION, rotationP);
   
-}
+} 
 
 
-////////////////////////////////////////////////////////
-// print command and execution time to the serial port//
-////////////////////////////////////////////////////////
+/**
+ * writeToClawServos(int time)
+ * call writeToClawServos() 
+ * print execution time and carriage return to the serial port
+ */
 void ClawController::writeToClawServos(int time){
   writeToClawServos();
   Serial.print("T");
   Serial.println(time);
+  delay(time);
 }

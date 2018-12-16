@@ -20,9 +20,11 @@ class LegsController{
    * LR = left rear leg
    * RR = right rear leg
    */
-   //                0, 1, 2,  3, 4, 5
-  //                 LF,RF,LM,RM,LR,RR  
-  const int HHS[6] = {24,8,20,4,16,0}; //used here to set servo sequence
+
+   
+   //                 0, 1, 2, 3, 4, 5     <--index
+  //                 LF,RF,LM,RM,LR,RR     <--note
+  const int HHS[6] = {24,8,20,4,16,0}; 
   const int VHS[6] = {25,9,21,5,17,1}; 
   const int KS[6] =  {26,10,22,6,18,2};
   
@@ -34,7 +36,7 @@ public:
   int KSP[6];
 
 	  
-  void stand();
+  void liftBody();
   void sit();
   void setLegsToNeutral(); 
  
